@@ -1,4 +1,4 @@
-package tehtros.bukkit.SignSpy;
+package darkMesa.bukkit.SignSpy;
 
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
@@ -11,6 +11,7 @@ import org.bukkit.event.block.SignChangeEvent;
 public class SignListener implements Listener {
 	public static SignSpy plugin;
 	public Configuration config;
+	
 	public SignListener(SignSpy instance) {
 		plugin = instance;
 	}

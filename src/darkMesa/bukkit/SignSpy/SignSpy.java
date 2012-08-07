@@ -1,4 +1,4 @@
-package tehtros.bukkit.SignSpy;
+package darkMesa.bukkit.SignSpy;
 
 import java.util.logging.Logger;
 
@@ -7,7 +7,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class SignSpy extends JavaPlugin { // * Le Connor stamp of approval
+public class SignSpy extends JavaPlugin {
 	public static SignSpy plugin;
 	public final Logger log = Logger.getLogger("Minecraft");
 	public Configuration config;
