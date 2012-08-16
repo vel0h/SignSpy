@@ -1,8 +1,7 @@
-package darkMesa.bukkit.SignSpy;
+package tehtros.bukkit.SignSpy;
 
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
-import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,7 +9,6 @@ import org.bukkit.event.block.SignChangeEvent;
 
 public class SignListener implements Listener {
 	public static SignSpy plugin;
-	public Configuration config;
 	
 	public SignListener(SignSpy instance) {
 		plugin = instance;

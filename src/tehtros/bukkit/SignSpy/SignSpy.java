@@ -1,4 +1,4 @@
-package darkMesa.bukkit.SignSpy;
+package tehtros.bukkit.SignSpy;
 
 import java.util.logging.Logger;
 
@@ -22,6 +22,7 @@ public class SignSpy extends JavaPlugin {
 		pdf = getDescription();
 		pm = getServer().getPluginManager();
 		pm.registerEvents(this.signListener, this);
+		config();
 		log.info("[" + pdf.getName() + "] " + pdf.getName() + " v" + pdf.getVersion() + " is enabled! :D");
 	}
 
