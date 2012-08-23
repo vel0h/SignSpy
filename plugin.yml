@@ -1,5 +1,5 @@
 name: SignSpy
-version: 1.0
+version: 1.3
 description: Send your admins a message every time a sign is placed, with the location, and what it says.
-authors: [tehtros, jmgr2007]
-main: darkMesa.bukkit.SignSpy.SignSpy
+author: tehtros
+main: tehtros.bukkit.SignSpy.SignSpy

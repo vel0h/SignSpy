@@ -9,11 +9,11 @@ import org.bukkit.event.block.SignChangeEvent;
 
 public class SignListener implements Listener {
 	public static SignSpy plugin;
-	
+
 	public SignListener(SignSpy instance) {
 		plugin = instance;
 	}
-	
+
 	@EventHandler
 	public void onSign(SignChangeEvent sign) {
 		Player sender = sign.getPlayer();
@@ -24,17 +24,29 @@ public class SignListener implements Listener {
 		int locy = block.getY();
 		int locz = block.getZ();
 
-		for(Player p : plugin.getServer().getOnlinePlayers()) {
-			if(p.hasPermission("signspy.log") || p.isOp()) {
-				p.sendMessage(ChatColor.DARK_AQUA + "[SignSpy] " + ChatColor.DARK_PURPLE + name + ChatColor.GOLD + " has placed a sign!");
-				p.sendMessage(ChatColor.DARK_AQUA + "[SignSpy] " + ChatColor.GOLD + "Location: x(" + locx + ") y(" + locy + ") z(" + locz + ")");
-				plugin.log.info("[SignSpy] " + name + " has placed a sign!");
-				plugin.log.info("[SignSpy] Location: x(" + locx + ") y(" + locy + ") z(" + locz + ")");
-				for(int o = 0; o < message.length; o++) {
-					int pint = o + 1;
-					if(!message[o].isEmpty()) {
-						p.sendMessage(ChatColor.DARK_AQUA + "[SignSpy] " + ChatColor.GOLD + "Line " + pint + ": " + ChatColor.YELLOW + message[o]);
-						plugin.log.info("[SignSpy] Line " + pint + ": " + message[o]);
+		plugin.signs++;
+
+		// As per Mason's request...
+		if(!message[0].isEmpty() || !message[1].isEmpty() || !message[2].isEmpty() || !message[3].isEmpty()) {
+			plugin.log.info("[SignSpy] " + name + " has placed a sign!");
+			plugin.log.info("[SignSpy] Location: x(" + locx + ") y(" + locy + ") z(" + locz + ")");
+			
+			for(int i = 0; i < message.length; i++) {
+				int o = i + 1;
+				if(!message[i].isEmpty()) {
+					plugin.log.info("[SignSpy] Line " + o + ": " + message[i]);
+				}
+			}
+			
+			for(Player p : plugin.getServer().getOnlinePlayers()) {
+				if(p.hasPermission("signspy.spy") || p.isOp()) {
+					p.sendMessage(ChatColor.DARK_AQUA + "[SignSpy] " + ChatColor.DARK_PURPLE + name + ChatColor.GOLD + " has placed a sign!");
+					p.sendMessage(ChatColor.DARK_AQUA + "[SignSpy] " + ChatColor.GOLD + "Location: x(" + locx + ") y(" + locy + ") z(" + locz + ")");
+					for(int i = 0; i < message.length; i++) {
+						int o = i + 1;
+						if(!message[i].isEmpty()) {
+							p.sendMessage(ChatColor.DARK_AQUA + "[SignSpy] " + ChatColor.GOLD + "Line " + o + ": " + ChatColor.YELLOW + message[i]);
+						}
 					}
 				}
 			}
