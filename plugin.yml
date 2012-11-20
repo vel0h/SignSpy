@@ -1,5 +1,17 @@
 name: SignSpy
-version: 1.3
+version: 1.5
 description: Send your admins a message every time a sign is placed, with the location, and what it says.
 author: tehtros
 main: tehtros.bukkit.SignSpy.SignSpy
+
+commands:
+  signspy:
+    description: Used to enable or disable sign logging to your in-game chat.
+    permission: signspy.spy
+    usage: /signspy [on|off]
+
+permissions:
+  signspy.spy:
+    description: Allows you to spy on other player's signs, as well as to use /signspy.
+  signspy.ignore:
+    description: Allows you to be ignored by SignSpy.
