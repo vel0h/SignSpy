@@ -55,10 +55,16 @@ public class SignSpy extends JavaPlugin {
 						if(ignoreSet.contains(sender)) {
 							ignoreSet.remove(sender);
 							sender.sendMessage("You will now recieve SignSpy messages!");
+						} else {
+							sender.sendMessage("You are already set recieve SignSpy messages!");
 						}
 					} else if(args[0].equalsIgnoreCase("off")) {
-						ignoreSet.add(sender);
-						sender.sendMessage("You will no longer recieve SignSpy messages!");
+						if(!ignoreSet.contains(sender)) {
+							ignoreSet.add(sender);
+							sender.sendMessage("You will no longer recieve SignSpy messages!");
+						} else {
+							sender.sendMessage("You are already set to not recieve SignSpy messages!");
+						}
 					} else {
 						sender.sendMessage("Incorrect usage. Please use /signspy [on|off] to enable or disable sign logging to your in-game chat.");
 					}

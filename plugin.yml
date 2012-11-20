@@ -8,7 +8,6 @@ commands:
   signspy:
     description: Used to enable or disable sign logging to your in-game chat.
     permission: signspy.spy
-    usage: /signspy [on|off]
 
 permissions:
   signspy.spy:
